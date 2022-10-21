@@ -49,6 +49,9 @@ body a{
     color: #262626;
     margin-left: 50px;
 }
+.small-list ul a li:hover{
+    text-decoration: underline;
+}
 .personal{
     /* background-color: bisque; */
     width: 300px;
@@ -81,6 +84,9 @@ body a{
 }
 .member a{
     padding-right: 11px;
+}
+.user-info .member a:hover{
+    text-decoration: underline;
 }
 .member img{
     width: 32px;
