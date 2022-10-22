@@ -54,7 +54,7 @@ body a{
 }
 .personal{
     /* background-color: bisque; */
-    width: 300px;
+    width: 350px;
     height: 100%;
     display: flex;
     justify-content: space-between;
@@ -62,8 +62,14 @@ body a{
     padding: 10px 0 0 0;
     margin: 13px 0;
 }
+.personal a{
+    color: #262626;
+}
 .microsoft-search{
     display: flex;
+}
+.microsoft-search a:hover{
+    text-decoration: underline;
 }
 .search i{
     font-size: 16px;
@@ -72,8 +78,12 @@ body a{
     margin-right: 5px;
 }
 .user-info{
+    width: 150px;
     display: flex;
     align-items: center;
+}
+.user-info .shop a:hover{
+    text-decoration:underline;
 }
 .shop{
     padding-right: 10px;
@@ -83,10 +93,13 @@ body a{
     align-items: center;
 }
 .member a{
+    /* width: 90px; */
     padding-right: 11px;
+    display: flex;
+    align-items: center;
 }
-.user-info .member a:hover{
-    text-decoration: underline;
+.member a span{
+    margin-right: 10px;
 }
 .member img{
     width: 32px;
