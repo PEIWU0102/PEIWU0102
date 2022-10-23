@@ -113,12 +113,38 @@ body a{
 .all-microsoft .check-info{
     list-style: none;
     position: absolute;
-    background-color: #f2f2f2;
     width: 1230px;
     height: 445px;
     z-index: 1;
     display: flex;
 }
+.personal .all-microsoft .check-info a{
+    color: transparent;
+}
+.personal .all-microsoft:hover .check-info a{
+    color: #262626;
+}
+.personal .all-microsoft .check-info span{
+    color: transparent;
+}
+.personal .all-microsoft:hover .check-info span{
+    color: #262626;
+}
+.all-microsoft .check-info{
+    background-color: transparent;
+    border: transparent;
+}
+.all-microsoft:hover .check-info{
+    background-color: #f2f2f2;
+    border: 1px solid #e7e7e7;
+}
+.check-info .bottom-info li{
+    background-color: transparent;
+}
+.all-microsoft:hover .check-info .bottom-info li{
+    background-color: #e7e7e7;
+}
+
 .check-info {
     display: flex;
     flex-direction: column;
@@ -126,7 +152,6 @@ body a{
     padding: 0;
     margin-left: -847.812px;  
     margin-top: 12px;
-    border: 1px solid #e7e7e7;
 }
 .top-info{
     display: flex;
@@ -150,7 +175,6 @@ body a{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e6e6e6;
 
 }
 /* main */
@@ -200,6 +224,21 @@ body a{
     height: 100px;
     display: flex; 
     justify-content: center; 
+}
+.button-left:hover{
+    transform: translate(-5px);
+}
+.button-right:hover{
+    transform: translate(5px);
+}
+.button-left::after{
+    content: ;
+    border: 5px dashed black;
+}
+.button-left:hover::after{
+    content: ;
+    border: 5px dashed black;
+
 }
 .page-control{
     width: 150px;
