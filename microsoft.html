@@ -8,6 +8,10 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/icon">
     <link rel="stylesheet" href="./css/microsoft.css">
     <link rel="stylesheet" href="./css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
     <title>Document</title>
     <style>
 
@@ -124,28 +128,60 @@
     </header>
     <main>
         <section id="banner">
-            <picture>
-                <source media="(max-width: 539px)" srcset="img/top-pic/539x440.avif">
-                <source media="(max-width: 859px)" srcset="img/top-pic/859x540.avif">
-                <source media="(max-width: 1083px)" srcset="img/top-pic/1083x600.avif">
-                <source media="(max-width: 1399px)" srcset="img/top-pic/1399x600.avif">
-                <img width="100%" src="./img/top-pic/1920x600.avif" alt="">
-            </picture>
-            <div class="product-title">
-                <div class="new">新上市</div>
-                <h1>Surface Pro 9</h1>
-                <div class="text">
-                    平板電腦的彈性和筆記型電腦的效能 — 全都在一台攜帶超方便的裝置
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <picture>
+                    <source media="(max-width: 539px)" srcset="img/top-pic/539x440.avif">
+                    <source media="(max-width: 859px)" srcset="img/top-pic/859x540.avif">
+                    <source media="(max-width: 1083px)" srcset="img/top-pic/1083x600.avif">
+                    <source media="(max-width: 1399px)" srcset="img/top-pic/1399x600.avif">
+                    <img width="100%" src="./img/top-pic/1920x600.avif" alt="">
+                </picture>
+                <div class="product-title">
+                    <div class="new">新上市</div>
+                    <h1>Surface Pro 9</h1>
+                    <div class="text">
+                        平板電腦的彈性和筆記型電腦的效能 — 全都在一台攜帶超方便的裝置
+                    </div>
+                    <div class="deeper">
+                        <a href="">深入了解</a>
+                    </div>
+                </div></div>
+                  <div class="swiper-slide"></div>
                 </div>
-                <div class="deeper">
-                    <a href="">深入了解</a>
-                </div>
-            </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
             <div class="turn-page">
                 <div class="page-control">
                     <div class="button-left"><i class="fa-solid fa-chevron-left"></i></div>
                     <div class="page-dot">
-                        <div class="dot-left"><i class="fa-regular fa-circle"></i></div>
+                        <div class="dot-left" tabindex="0"><i class="fa-regular fa-circle"></i></div>
                         <div class="dot-right"><i class="fa-solid fa-circle"></i></div>
                     </div>
                     <div class="button-right"><i class="fa-solid fa-chevron-right"></i></div>
@@ -458,6 +494,22 @@
             </div>
         </section>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+      <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>
 </body>
 
 </html>
