@@ -27,7 +27,7 @@ body a{
 
 }
 .list{
-    width: 50%;
+    width: 70%;
     display: flex;
 }
 .logo{
@@ -40,15 +40,23 @@ body a{
     width: 108px;
     height: 23px;
 }
+.small-list{
+    width: 100%;
+}
 .small-list ul {
     list-style: none;
     display: flex;
     align-items: baseline;
     padding: 10px 10px 0 0;
 }
+.small-list ul li{
+    display: flex;
+    justify-content: flex-start;
+}
 .small-list ul a {
     color: #262626;
-    margin-left: 50px;
+    /* margin-left: 30px; */
+    padding: 0 10px;
 }
 .small-list ul a li:hover{
     text-decoration: underline;
@@ -121,29 +129,29 @@ body a{
 .personal .all-microsoft .check-info a{
     color: transparent;
 }
-.personal .all-microsoft:hover .check-info a{
+/* .personal .all-microsoft:hover .check-info a{
     color: #262626;
-}
+} */
 .personal .all-microsoft .check-info span{
     color: transparent;
 }
-.personal .all-microsoft:hover .check-info span{
+/* .personal .all-microsoft:hover .check-info span{
     color: #262626;
-}
+} */
 .all-microsoft .check-info{
     background-color: transparent;
     border: transparent;
 }
-.all-microsoft:hover .check-info{
+/* .all-microsoft:hover .check-info{
     background-color: #f2f2f2;
     border: 1px solid #e7e7e7;
-}
+} */
 .check-info .bottom-info li{
     background-color: transparent;
 }
-.all-microsoft:hover .check-info .bottom-info li{
+/* .all-microsoft:hover .check-info .bottom-info li{
     background-color: #e7e7e7;
-}
+} */
 
 .check-info {
     display: flex;
@@ -152,6 +160,12 @@ body a{
     padding: 0;
     margin-left: -847.812px;  
     margin-top: 12px;
+}
+#min:checked +.check-info{
+    display: none;
+} 
+#min{
+    display: none;
 }
 .top-info{
     display: flex;
@@ -463,6 +477,7 @@ body a{
 }
 .heading{
     font-size: 15px;
+    font-weight: 600;
     padding: 36px 0 4px;
 }
 .info ul{
@@ -479,7 +494,7 @@ body a{
 }
 
 .about{
-    /* background-color: aquamarine; */
+    background-color: #f2f2f2;
     height: 72px;
     display: flex;
     align-items: center;
@@ -514,7 +529,197 @@ body a{
     color: #616161;
     font-style: 20px;
 }
+@media(max-width:1399px){
+    .personal{
+        display: flex;
+        justify-content: end;
+    }
+    .search a{
+        font-size: 0px;   
+    }
+    .user-info{
+        width: 100px;
+        display: flex;
+        justify-content: end;
+    }
+    .user-info a{
+        font-size: 0;
+    }
+    .user-info a i{
+        font-size: 16px;
+    }  
+    .word ul{
+        width: 50%;
+    }
+}
+@media(max-width:1083px){
+    .product-title{
+        width: calc(100% - 24px);
+        height: 260px;
+        background-color: #fff;
+        top: 60%;
+        left: 0;
+        margin: 0 12px;
+        padding: 48px;
+        box-shadow: 2px 2px 5px #d5d5d5 ;
+        /* position: relative; */
+    }
+    .product-title h1{
+        font-size: 24px;
+    }
+    .product-title .deeper{
+        margin: 15px 0 0;
+    }
+    .turn-page{
+        margin-top: 20%;
+    }
+    #banner3{
+        /* width: 1066px; */
+        /* flex-wrap: wrap; */
+    }
+    .bigcard{
+        width: 100%;
+        height: 948px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    .card{
+        /* width: 533px; */
+        width: calc(100% / 2);
+        /* height: 474px; */
+        margin-bottom: 48px;
+    }
+    .card h2{
+        font-size: 21px;
+    }
+    #onedrive{
+        margin-top: 0;
+    }
+    #onedrive img{
+        padding: 0;
+    }
+    .onedrive-title{
+        width: calc(100% - 24px);
+        height: 224px;
+        background-color: #fff;
+        top: 92%;
+        left: 0;
+        margin: 0 12px;
+        padding: 48px;
+        box-shadow: 2px 2px 5px #d5d5d5 ;
+    }
+    .onedrive-title h2{
+        font-size: 24px;
+        margin: 0 0 12px;
+    }
+    .onedrive-title .deeper{
+        margin-top: 22px;
+    }
 
+
+    #for-business{
+        width: 100%;
+        height: 100%;
+        margin: 20% 0 0;
+    }
+    .biz-card{
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    #for-business h2{
+        font-size: 24px;
+        margin: 0 0 12px;
+        padding: 0 12px 0;
+    }
+    .card h3{
+        font-size: 21px;
+    }
+    #bottom{
+        /* width: 1066px; */
+        height: 632px;
+        padding: 0;
+    }
+    #bottom .all-info{  
+        height: 632px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .all-info .info {
+        width: calc((100% - 94px) / 3);
+    }
+    .all-info ul{
+        padding: 0 12px;
+    }
+    .heading{
+        width: 324px;
+        padding: 36px 12px 0;
+    }
+    .word{
+        padding: 0 12px;
+    }
+    .word ul{
+        width: 500px;
+        padding: 0 50px 0 0;
+
+    }
+    
+
+
+}
+@media(max-width:859px){
+    .small-list{
+        font-size: 0;
+    }
+    .container{
+        padding: 0 12px;
+    }
+    
+    .product-title{
+        width: 100%;
+        height: 204.8px;
+        top: 67%;
+        left: 0;
+        margin: 0;
+        padding: 24px 16px;
+        position: absolute;
+    }
+    .product-title .deeper{
+        margin: 8px 0 0 0;
+    }
+    .turn-page{
+        margin-top: 204.8px;
+        height: 50px;
+        display: flex;
+        align-items: flex-end;
+    }
+    .onedrive-title{
+        width: 100%;
+        height: 224px;
+        top: 92%;
+        left: 0;
+        margin: 0;
+        padding: 48px 12px;
+        position: relative;
+        box-shadow: 0px 0px 0px #d5d5d5 ;
+    }
+    #for-business{
+        margin:5% 0 0;
+    }
+    #fans{
+        padding:0 12px;
+    }
+
+
+}
+@media(max-width:539px){
+
+}
 
 
 
