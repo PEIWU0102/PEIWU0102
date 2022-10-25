@@ -58,9 +58,15 @@ body a{
     /* margin-left: 30px; */
     padding: 0 10px;
 }
-.small-list ul a li:hover{
+.small-list ul li a:hover{
     text-decoration: underline;
 }
+.more{
+    display: none;
+}
+
+
+
 .personal{
     /* background-color: bisque; */
     width: 350px;
@@ -118,54 +124,29 @@ body a{
     margin-right: 10px;
     position: relative;
 }
-.all-microsoft .check-info{
+/* 清單 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#min{
+    display: none;
+}
+.check-info{
+    display: none;
+}
+
+#min:checked + .check-info{
     list-style: none;
+    display: flex;
     position: absolute;
     width: 1230px;
     height: 445px;
-    z-index: 1;
-    display: flex;
-}
-.personal .all-microsoft .check-info a{
-    color: transparent;
-}
-.personal .all-microsoft:hover .check-info a{
-    color: #262626;
-}
-.personal .all-microsoft .check-info span{
-    color: transparent;
-}
-.personal .all-microsoft:hover .check-info span{
-    color: #262626;
-}
-.all-microsoft .check-info{
-    background-color: transparent;
-    border: transparent;
-}
-.all-microsoft:hover .check-info{
+    z-index: 3;
     background-color: #f2f2f2;
     border: 1px solid #e7e7e7;
-}
-.check-info .bottom-info li{
-    background-color: transparent;
-}
-.all-microsoft:hover .check-info .bottom-info li{
-    background-color: #e7e7e7;
-}
-
-.check-info {
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 0;
-    margin-left: -847.812px;  
+    margin-left: -921.812px;  
     margin-top: 12px;
-}
-#min:checked +.check-info{
-    display: none;
-} 
-#min{
-    display: none;
+    border-bottom: 2px solid black;
 }
 .top-info{
     display: flex;
@@ -182,6 +163,9 @@ body a{
 .top-info li span{
     padding: 18px 0 18px 24px;
 }
+.bottom-info{
+    background-color: #e6e6e6;
+}
 .bottom-info li{
     width: 100%;
     height: 36px;
@@ -189,8 +173,8 @@ body a{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
+/* 清單~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 /* main */
 #banner{
     width: 100%;
@@ -204,6 +188,19 @@ body a{
     position: absolute;
     top: 23%;
     left: 61%;
+}
+.product-title .sec{
+    background-color: #0067b8;
+    /* width: 30%; */
+    /* height: 40%; */
+    word-break: keep-all;
+    /* position: absolute; */
+    top: 100%;
+    left: 50;
+}
+.swiper-slide{
+    width: 100%;
+    height: 40%;
 }
 .new{
     background-color: #ffb900;
@@ -233,13 +230,19 @@ body a{
     font-weight: 1000;
 }
 
+/* 按鈕--------------------------------------------------- */
+
 .turn-page{
     width: 100%;
-    height: 100px;
+    height: 50px;
     display: flex; 
     justify-content: center; 
 }
 .button-left{
+    font-size: 20px;
+    position: relative;
+}
+.button-right{
     font-size: 20px;
     position: relative;
 }
@@ -269,21 +272,28 @@ body a{
 }
 .page-control{
     width: 150px;
-    height: 50%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .page-dot {
+    width: 100%;
+    height: 80%;
     display: flex;
     justify-content: center;  
 }
+
 .dot-right{
     margin: 10px;
 }
 .dot-left{
     margin: 10px;
+
 }
+/* 按鈕------------------------------------------------------------ */
+
+
 /* banner2三張圖 */
 #banner2{
     /* background-color: antiquewhite; */
@@ -296,10 +306,10 @@ body a{
     text-decoration: underline;
 }
 .choose-get{
-    width: 570px;
+    width: 100%;
     height: 120px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     
 }
@@ -318,7 +328,7 @@ body a{
 }
 .cg{
     width: 120px;
-    margin: 0 10px;
+    /* margin: 0 10px; */
 }
 .choose-get li a{
     color: #0067b8;
@@ -566,16 +576,19 @@ body a{
     }
 }
 @media(max-width:1083px){
+    /* #banner{
+        height: 870px;
+    } */
     .product-title{
         width: calc(100% - 24px);
         height: 260px;
         background-color: #fff;
-        top: 60%;
+        top: -50px;
         left: 0;
         margin: 0 12px;
         padding: 48px;
         box-shadow: 2px 2px 5px #d5d5d5 ;
-        /* position: relative; */
+        position: relative;
     }
     .product-title h1{
         font-size: 24px;
@@ -584,12 +597,11 @@ body a{
         margin: 15px 0 0;
     }
     .turn-page{
-        margin-top: 20%;
+        margin-top: 0;
+        position: relative;
+        top: -36px;
     }
-    #banner3{
-        /* width: 1066px; */
-        /* flex-wrap: wrap; */
-    }
+
     .bigcard{
         width: 100%;
         height: 948px;
@@ -682,10 +694,41 @@ body a{
 
     }
     
+}
 
+@media(max-width:1011px){
+    .xbox{
+        display: none;
+    }
+    .help{
+        display: none;
+    }
+    .more{
+        display: block;
+    }
 
+    
 }
 @media(max-width:859px){
+
+    
+    .container{
+        display: none;
+    }
+    .logo{
+        position: absolute;
+        top: 0px;
+        left: 40%;
+    }
+    .personal{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .list{
+        width: 0;
+    }
+
     .small-list{
         font-size: 0;
     }
@@ -694,19 +737,19 @@ body a{
     }
     
     .product-title{
-        width: 100%;
+        width: calc(100% - 24px);
         height: 204.8px;
-        top: 67%;
+        top: -52px;
         left: 0;
-        margin: 0;
+        margin: 0 12px;
         padding: 24px 16px;
-        position: absolute;
+        position: relative;
     }
     .product-title .deeper{
         margin: 8px 0 0 0;
     }
     .turn-page{
-        margin-top: 204.8px;
+        margin-top: -8.199999999999989px;
         height: 50px;
         display: flex;
         align-items: flex-end;
@@ -731,6 +774,64 @@ body a{
 
 }
 @media(max-width:539px){
+    .product-title{
+        position: relative;
+    }
+    .turn-page{
+        margin: 0;
+    }
+    .choose-get{
+        height: 240px;
+        flex-wrap: wrap;
+        /* flex-direction: column; */
+    }
+    #banner3{
+        margin-top: 130px;
+    }
+    .bigcard{
+        height: 1559px;
+        flex-direction: column;
+    }
+    .card{
+        width: 100%;
+        height: 468px;
+    }
+    #fans{
+        margin: 0;
+    }
+    #btt{
+        position: relative;
+    }
+    #btt a{
+        width: 100%;
+        margin: 0 12px 0;
+    }
+    #bottom{
+        height: 1715px;
+    }
+    #bottom .all-info{
+        height: 1608px;
+    }
+    .all-info .info{
+        width: 100%;
+        flex-direction: column;
+    }
+    .all-info ul{
+        padding:  0 24px;
+    }
+    .heading{
+        padding: 36px 24px 0;
+
+    }
+    .about{
+        height: 107px;
+    }
+    .word{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 24px 0;
+    }
 
 }
 

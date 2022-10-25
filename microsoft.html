@@ -33,8 +33,9 @@
                                 <li><a href="">Teams</a></li>
                                 <li><a href="">Windows</a></li>
                                 <li><a href="">Surface</a></li>
-                                <li><a href="">Xbox</a></li>
-                                <li><a href="">支援</a></li>
+                                <li><a class="xbox" href="">Xbox</a></li>
+                                <li ><a class="help" href="">支援</a></li>
+                                <li><a class="more" href="">更多<i class="fa-solid fa-angle-down"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -131,47 +132,45 @@
 
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <picture>
-                    <source media="(max-width: 539px)" srcset="img/top-pic/539x440.avif">
-                    <source media="(max-width: 859px)" srcset="img/top-pic/859x540.avif">
-                    <source media="(max-width: 1083px)" srcset="img/top-pic/1083x600.avif">
-                    <source media="(max-width: 1399px)" srcset="img/top-pic/1399x600.avif">
-                    <img width="100%" src="./img/top-pic/1920x600.avif" alt="">
-                </picture>
-                <div class="product-title">
-                    <div class="new">新上市</div>
-                    <h1>Surface Pro 9</h1>
-                    <div class="text">
-                        平板電腦的彈性和筆記型電腦的效能 — 全都在一台攜帶超方便的裝置
+                    <div class="swiper-slide">
+                        <picture>
+                            <source media="(max-width: 539px)" srcset="img/top-pic/539x440.avif">
+                            <source media="(max-width: 859px)" srcset="img/top-pic/859x540.avif">
+                            <source media="(max-width: 1083px)" srcset="img/top-pic/1083x600.avif">
+                            <source media="(max-width: 1399px)" srcset="img/top-pic/1399x600.avif">
+                            <img width="100%" src="./img/top-pic/1920x600.avif" alt="">
+                        </picture>
+                        <div class="product-title">
+                            <div class="new">新上市</div>
+                            <h1>Surface Pro 9</h1>
+                            <div class="text">
+                                平板電腦的彈性和筆記型電腦的效能 — 全都在一台攜帶超方便的裝置
+                        </div>
+                        <div class="deeper">
+                        <a href="">深入了解</a></div>
+                        </div>
                     </div>
-                    <div class="deeper">
-                        <a href="">深入了解</a>
+                    <div class="swiper-slide">
+                        <picture>
+                            <source media="(max-width: 539px)" srcset="../microsoft/img/top-pic2/539x440.avif">
+                            <source media="(max-width: 859px)" srcset="../microsoft/img/top-pic2/859x540.avif">
+                            <source media="(max-width: 1083px)" srcset="../microsoft/img/top-pic2/1083x600.avif">
+                            <source media="(max-width: 1399px)" srcset="../microsoft/img/top-pic2/1399x600.jfif">
+                            <img width="100%" src="../microsoft/img/top-pic2/1920x600.jfif" alt="">
+                        </picture>
+                        <div class="product-title">
+                            <h2>Microsoft 365</h2>
+                            <div class="text">進階版 Office 應用程式、額外的雲端儲存空間、進階安全性等功能，全都在一個方便的訂閱中</div>
+                        <div class="deeper">適合 1 人使用</div>
+                        <a href="">最多可供 6 人使用</a>
+                        </div>
+
                     </div>
-                </div></div>
-                  <div class="swiper-slide"></div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+                <!-- <div class="swiper-pagination"></div> -->
+            </div>
 
 
 
@@ -223,7 +222,7 @@
                 </div>
                 <div class="card 2">
                     <picture>
-                        <source media="(max-width: 539px)" srcset="img/banner3/2-1.avif">
+                        <source media="(max-width: 539px)" srcset="img/banner3/2-1.jfif">
                         <source media="(max-width: 859px)" srcset="img/banner3/2-2.avif">
                         <source media="(max-width: 1083px)" srcset="img/banner3/2-3.jfif">
                         <source media="(max-width: 1399px)" srcset="img/banner3/2-4.jfif">
@@ -505,8 +504,8 @@
             clickable: true,
           },
           navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".button-right",
+            prevEl: ".button-left",
           },
         });
       </script>
