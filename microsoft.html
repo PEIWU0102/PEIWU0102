@@ -8,10 +8,7 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/icon">
     <link rel="stylesheet" href="./css/microsoft.css">
     <link rel="stylesheet" href="./css/all.min.css">
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <title>Document</title>
     <style>
 
@@ -22,6 +19,90 @@
     <header>
         <section id="nav">
             <nav>
+                <div class="on-859px-container">
+                    <div class="nav-menu">
+                        <label for="microsoft-menu" class="microsoft-list">
+                            <i class="fa-solid fa-bars"></i>
+                        </label>
+                        <input type="checkbox" id="microsoft-menu">
+                        <ul class="small-nav-list">
+                            <li class="only-title">
+                                <a href="">Microsoft 365</a>
+                            </li>
+                            <li class="only-title">
+                                <a href="">Teams</a>
+                            </li>
+                            <li class="only-title">
+                                <a href="">Windows</a>
+                            </li>
+                            <li class="only-title">
+                                <a href="">Surface</a>
+                            </li>
+                            <li class="only-title">
+                                <a href="">Xbox</a>
+                            </li>
+                            <li class="only-title">
+                                <a href="">支援</a>
+                            </li>
+                            <li class="other-title">
+                                <a href="">軟體</a>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </li>
+                            <li class="other-title">
+                                <a href="">個人電腦和設備</a>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </li>
+                            <li class="other-title">
+                                <a href="">娛樂</a>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </li>
+                            <li class="other-title">
+                                <a href="">商務適用</a>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </li>
+                            <li class="other-title">
+                                <a href="">開發人員與IT</a>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </li>
+                            <li class="other-title">
+                                <a href="">其他</a>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </li>
+                            <li class="other-title">
+                                <a href="">檢視網站地圖</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    
+                    <div class="small-nav">
+                        <div class="small-search">
+                            <i class="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
+                        </div>
+                        <div class="small-logo">
+                            <img src="./img/logo.png" alt="">
+                        </div>
+                        <div class="right-menu">
+                            <div class="small-shop">
+                                <i class="fa-solid fa-cart-shopping"></i></div>
+                            <div class="small-member">
+                                <a href=""><img src="./img/member.svg" alt=""></i></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
                 <div class="container">
                     <div class="list">
                         <div class="logo">
@@ -34,7 +115,7 @@
                                 <li><a href="">Windows</a></li>
                                 <li><a href="">Surface</a></li>
                                 <li><a class="xbox" href="">Xbox</a></li>
-                                <li ><a class="help" href="">支援</a></li>
+                                <li><a class="help" href="">支援</a></li>
                                 <li><a class="more" href="">更多<i class="fa-solid fa-angle-down"></i></a></li>
                             </ul>
                         </div>
@@ -145,9 +226,10 @@
                             <h1>Surface Pro 9</h1>
                             <div class="text">
                                 平板電腦的彈性和筆記型電腦的效能 — 全都在一台攜帶超方便的裝置
-                        </div>
-                        <div class="deeper">
-                        <a href="">深入了解</a></div>
+                            </div>
+                            <div class="deeper">
+                                <a href="">深入了解</a>
+                            </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -161,8 +243,8 @@
                         <div class="product-title">
                             <h2>Microsoft 365</h2>
                             <div class="text">進階版 Office 應用程式、額外的雲端儲存空間、進階安全性等功能，全都在一個方便的訂閱中</div>
-                        <div class="deeper">適合 1 人使用</div>
-                        <a href="">最多可供 6 人使用</a>
+                            <div class="deeper">適合 1 人使用</div>
+                            <a href="">最多可供 6 人使用</a>
                         </div>
 
                     </div>
@@ -175,7 +257,7 @@
 
 
 
-            
+
             <div class="turn-page">
                 <div class="page-control">
                     <div class="button-left"><i class="fa-solid fa-chevron-left"></i></div>
@@ -494,21 +576,21 @@
         </section>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-      <script>
+    <script>
         var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 1,
-          spaceBetween: 30,
-          loop: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".button-right",
-            prevEl: ".button-left",
-          },
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".button-right",
+                prevEl: ".button-left",
+            },
         });
-      </script>
+    </script>
 </body>
 
 </html>
