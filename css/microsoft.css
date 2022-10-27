@@ -10,6 +10,9 @@ body{
 body a{
     text-decoration: none;
 }
+body a:focus{
+    border: 1px dashed black;
+}
 body a:hover{
     text-decoration: underline;
 }
@@ -67,6 +70,10 @@ body a i:hover{
     color: #262626;
     /* margin-left: 30px; */
     padding: 0 10px;
+}
+.small-list ul a:focus{
+    border: 1px dashed black;
+
 }
 .small-list ul li a:hover{
     text-decoration: underline;
