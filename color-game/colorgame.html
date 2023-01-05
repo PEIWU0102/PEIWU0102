@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background-color: rgba(201, 120, 44, 0.562);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+        }
+
+        .timeBoard {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            font-size: 40px;
+        }
+
+        .bigbox {
+            width: 550px;
+            height: 550px;
+            background-color: rgb(121, 116, 111);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 5px;
+            border-radius: 10px;
+        }
+
+        .startGameBox {
+            width: 550px;
+            height: 550px;
+            background-color: rgb(121, 116, 111);
+            position: absolute;
+            border-radius: 10px;
+            opacity: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 按鈕區 */
+        .startGameButton {
+            width: 150px;
+            height: 100px;
+            font-size: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .startGameButton:hover {
+            opacity: 1;
+            background-color: rgb(71, 199, 199);
+        }
+
+        /* .stopGameButton{
+            width: 150px;
+            height: 100px;
+            font-size: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+        } */
+        /* .stopGameButton:hover{
+            opacity: 1;
+            background-color: rgba(236, 160, 88, 0.952);
+        } */
+        .returnGameStartButton {
+            width: 150px;
+            height: 100px;
+            font-size: 30px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .returnGameStartButton:hover {
+            opacity: 1;
+            background-color: rgba(236, 160, 88, 0.952);
+        }
+
+
+        .score-board {
+            width: 150px;
+            height: 100px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 10px;
+            color: aliceblue;
+        }
+        .scoreLevel{
+            width: 150px;
+            height: 100px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 10px;
+            color: aliceblue;
+        }
+
+        .startGameBox.moveBox {
+            width: 150px;
+            height: 400px;
+            background-color: rgb(121, 116, 111);
+            left: 0;
+            border-radius: 10px;
+            opacity: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .none {
+            display: none;
+        }
+
+
+        .smallbox {
+            width: calc((100% - 30px)/2);
+            height: calc((100% - 30px)/2);
+            background-color: aquamarine;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+
+        .smallbox.ans {
+            background-color: rgb(45, 221, 162);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container ">
+        <div class="timeBoard none"></div>
+        <div class="startGameBox">
+            <button class="startGameButton">Start</button>
+            <!-- <button class="stopGameButton none">Stop</button> -->
+            <button class="returnGameStartButton none">重新開始</button>
+            <div class="score-board none">分數</div>
+            <div class="scoreLevel none ">評語</div>
+            
+
+        </div>
+        <div class="bigbox ">
+            <div class="smallbox ans"></div>
+            <div class="smallbox "></div>
+            <div class="smallbox "></div>
+            <div class="smallbox "></div>
+        </div>
+        <div class="time-board"></div>
+    </div>
+
+    <script>
+        // 宣告---------------------------------------------------
+        const bigbox = document.querySelector('.bigbox');
+        const scoreBoard = document.querySelector('.score-board');
+        const startGameButton = document.querySelector('.startGameButton');
+        const startGameBox = document.querySelector('.startGameBox');
+        const returnGameStartButton = document.querySelector('.returnGameStartButton');
+        const timeBoard = document.querySelector('.timeBoard');
+        const scoreLevel = document.querySelector('.scoreLevel');
+
+        let score = 0;
+        let time = 10;
+        let timer;
+
+        //開始按鈕
+        startGameButton.addEventListener('click', function () {
+            startGameBox.classList.add('moveBox');
+            startGameButton.classList.add('none');
+            scoreBoard.classList.remove('none');
+            returnGameStartButton.classList.remove('none');
+            timeBoard.classList.remove('none');
+            scoreLevel.classList.add('none')
+
+            // 計時器
+            timer = setInterval(function () {
+                if (time > 0) {
+                    time--;
+                } else {
+                    clearInterval(timer);
+                    startGameBox.classList.remove('moveBox');
+                    scoreLevel.classList.remove('none')
+                }
+                timeBoard.textContent = `${time}`;
+                scoreLevel.textContent = `，${scorelevel()}`;
+            }, 1000);
+        })
+
+        //重新開始按鈕
+        returnGameStartButton.addEventListener('click', function () {
+            startGameBox.classList.remove('moveBox');
+            startGameButton.classList.remove('none');
+            returnGameStartButton.classList.add('none');
+            scoreBoard.classList.add('none');
+            timeBoard.classList.add('none');
+            scoreLevel.classList.add('none')
+            clearInterval(timer);
+            time = 10;
+            score = 0;
+            scoreBoard.textContent = `得分: ${score} 分`;
+            makeBox(1);
+            setBoard(1);
+        })
+        
+        //評語
+        function scorelevel(){
+            if(score <5){
+                return '請加油'
+            }else if(score <10){
+                return '再加油'
+            }else{
+                return '棒棒哦'
+            }
+        }
+        function sideLength(level) {
+            return (550 - 5 * level) / (level + 1);
+        }
+        function makeBox(level) {
+            let random = Math.floor(Math.random() * (level + 1) * (level + 1));
+            let r = Math.floor(Math.random() * 255);
+            let g = Math.floor(Math.random() * 255);
+            let b = Math.floor(Math.random() * 255);
+
+            let sideLength = (550 - 5 * level) / (level + 1);
+            bigbox.innerHTML = '';
+            for (let i = 0; i < (level + 1) * (level + 1); i++) {
+                if (i == random) {
+                    bigbox.innerHTML += `<div class="smallbox ans" style="background-color:rgba(${r},${g},${b},0.7); 
+                                width: ${sideLength}px; height: ${sideLength}px;"></div>`;
+                } else {
+                    bigbox.innerHTML += `<div class="smallbox" style="background-color:rgba(${r},${g},${b}); width: ${sideLength}px; height: ${sideLength}px;"></div>`;
+                }
+            }
+        }
+        function setBoard(level) {
+            let boxes = document.querySelectorAll('.smallbox');
+            boxes.forEach(function (box) {
+                box.addEventListener('click', function () {
+                    if (box.classList.contains('ans')) {
+                        score = score + 1;
+                        scoreBoard.textContent = `得分: ${score} 分`;
+                        makeBox(level);
+                        if (level < 10) {
+                            level++;
+                        } else {
+                            level;
+                        };
+                        // 遞回函數
+                        setBoard(level);
+                    } else {
+                        alert('按錯瞜')
+                    }
+                });
+            });
+        };
+        // 返回函數
+        setBoard(1);
+    </script>
+</body>
+
+</html>
