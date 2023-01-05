@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(95, 124, 133);
+        }
+
+        .container {
+            width: 100%;
+            background-color: rgb(95, 124, 133);
+            font-size: 30px;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container.height {
+            height: 100vh;
+        }
+
+        .main {
+            width: 90%;
+            background-color: rgba(116, 126, 136, 0.829);
+            box-shadow: 5px 5px 7px rgb(185, 179, 179);
+        }
+
+        .main.height {
+            height: 90%;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tab {
+            cursor: pointer;
+            width: 100%;
+            height: 45px;
+            font-size: 30px;
+            background-color: rgba(71, 86, 107, 0.603);
+            color: aliceblue;
+            border: 1px solid rgb(230, 232, 233);
+        }
+
+        .active {
+            background-color: antiquewhite;
+            color: black;
+        }
+
+        /* 內容 */
+        .content {
+            width: 100%;
+            display: flex;
+        }
+
+        .content.height {
+            height: calc(100% - 50px);
+        }
+
+        .content span {
+            font-size: 60px;
+            color: aliceblue;
+        }
+
+        /* --------------------天氣小卡------------------------▽ */
+        .infoBox {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .infoBox.height {
+            height: 100%;
+        }
+
+        .localCard {
+            width: 30%;
+            height: 30%;
+            box-shadow: 5px 5px 7px rgb(153, 145, 145);
+        }
+
+        .localCard:hover {
+            transition: all 1s ease;
+            transform: scale(1.1);
+        }
+
+        .cityName {
+            width: 100%;
+            height: 20%;
+            background-color: rgba(71, 86, 107, 0.603);
+            border-radius: 10px 10px 0 0;
+            line-height: 50px;
+            color: rgb(252, 251, 245);
+        }
+
+        .cityInfo {
+            width: 100%;
+            height: 80%;
+            background-color: rgba(27, 36, 36, 0.37);
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            color: rgba(240, 248, 255, 0.801)
+        }
+
+        .weatherIcon {
+            width: 50%;
+        }
+
+        /* -------------------------天氣小卡----------------------------△ */
+
+        /* --------------------------台灣地圖--------------------------▽ */
+        .mapBox {
+            width: 50%;
+            height: 100%;
+            position: relative;
+        }
+
+        .map {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            left: 10%;
+            top: 4%;
+        }
+
+        .allInfo {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        /* .point{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: black;
+            z-index: 1;
+            left: 0;
+            top: 0;
+        } */
+        .image {
+            width: 1%;
+        }
+
+        .none {
+            display: none;
+        }
+
+        /* --------------------台灣地圖---------------------------------△ */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="tabs">
+                <button class="tab ">北部</button>
+                <button class="tab ">中部</button>
+                <button class="tab ">南部</button>
+                <button class="tab ">東部</button>
+                <button class="tab ">離島</button>
+                <button class="tab ">全部地區</button>
+            </div>
+            <div class="content">
+                <div class="infoBox">
+                    <span>各地天氣狀況</span>
+                </div>
+                <div class="mapBox ">
+                    <div class="map">
+                        <div class="point"></div>
+                        <img class="image" src="./img/weather/台灣.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // 宣告--------------------------------------
+        const tabs = document.querySelectorAll('.tab');
+        const infoBox = document.querySelector('.infoBox');
+        const image = document.querySelector('.image');
+        const mapBox = document.querySelector('.mapBox');
+        const container = document.querySelector('.container');
+        let localCard = document.querySelectorAll('.localCard');
+        const content = document.querySelector('.content');
+        const main = document.querySelector('.main');
+
+        //宣告圖片使用此格式
+        const img = './img/weather/台灣.png';
+        const sunny = './img/weather/太陽.svg';
+        const raining = './img/weather/雨天.svg';
+        const cloudy = './img/weather/陰天.svg';
+
+        //天氣平台內抓出各地區的值做一個陣列
+        let north = [1, 3, 4, 5, 7, 8, 13, 18];
+        let central = [9, 11, 14, 20];
+        let south = [0, 2, 6, 15, 17];
+        let east = [10, 12];
+        let island = [16, 19, 21];
+
+        //all =>用迴圈抓出22個縣市
+        let all = []
+        for (let i = 0; i < 22; i++) {
+            all[i] = i;
+        }
+
+        // 引入天氣平台---------------------------------------------------------
+        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-5D5EDAAC-3681-4662-A366-44AF14D55F4A').then(function (response) {
+            return response.json()
+        }).then(function (data) {
+            console.log(data);
+            console.log(data.records.location[0]);
+            //---------------------------------------------------------------------
+            //指定tabs陣列內每個元素給指定函式(tab,index)執行
+            tabs.forEach(function (tab, index) {
+                tab.addEventListener('click', function () {   //指定函式(tab)的點擊('click')事件會執行的動作
+                    tabs.forEach(tab => {                     //每個tab
+                        tab.classList.remove('active');      //點擊會還原active效果
+                    })
+                    tab.classList.add('active');           //點擊會增加active效果
+                    infoBox.innerHTML = '';                //當點擊tab時會清空infoBox內容
+
+                    //宣告     = j =>{}  ==  =function(j){.....}  
+                    let location = j => { return data.records.location[j].locationName; }  //如果=>後面有{}要自動加上return
+                    let weather = j => { return data.records.location[j].weatherElement[0].time[0].parameter.parameterName }; //引入天氣平台的值
+                    let temperature = j => { return data.records.location[j].weatherElement[2].time[0].parameter.parameterName + '°' + 'C' };
+                    let icon = j => {
+                        if (weather(j).includes('晴時多雲')) {   //incloudes => 判斷陣列內是否包含特定元素
+                            return sunny;
+                        } else if (weather(j).includes('雨')) {
+                            return raining;
+                        } else {
+                            return cloudy;
+                        }
+                    }
+                    //置入天氣小卡資訊
+                    let weatherCard = function (x) {            //function(x)執行會執行下方動作
+                        infoBox.innerHTML +=
+                            `<div class="localCard">
+                            <div class="cityName">${location(x)}</div>
+                            <div class="cityInfo">
+                                <div class="weatherImg"><img class="weatherIcon " src="${icon(x)}" alt=""></div>
+                                <div class="tepmInfo">${temperature(x)}</div>
+                                <div class="weatherInfo">${weather(x)}</div>
+                            </div>
+                        </div>`;
+                    }
+                    //抓5個tab的內容
+                    switch (index) {   //tabs裡的函式
+                        case 0:
+                            north.forEach(function (i) {   //north
+                                weatherCard(i);
+                            })
+                            // 放大倍數
+                            image.style.transform = 'scale(60)'
+                            image.style.transition = 'all 2s ease';
+                            infoBox.classList.remove('allInfo');
+                            mapBox.classList.remove('none');
+                            container.classList.add('height');
+                            content.classList.add('height');
+                            main.classList.add('height');
+                            break;
+                        case 1:
+                            central.forEach(function (i) {
+                                weatherCard(i);
+                            })
+                            image.style.transform = 'scale(50)'
+                            image.style.transition = 'all 2s ease';
+                            infoBox.classList.remove('allInfo');
+                            mapBox.classList.remove('none');
+                            container.classList.add('height');
+                            content.classList.add('height');
+                            main.classList.add('height');
+                            infoBox.classList.add('height');
+                            break;
+                        case 2:
+                            south.forEach(function (i) {
+                                weatherCard(i);
+                            })
+                            image.style.transform = 'scale(60)'
+                            image.style.transition = 'all 2s ease';
+                            infoBox.classList.remove('allInfo');
+                            mapBox.classList.remove('none');
+                            container.classList.add('height');
+                            content.classList.add('height');
+                            main.classList.add('height');
+                            infoBox.classList.add('height');
+                            break;
+                        case 3:
+                            east.forEach(function (i) {
+                                weatherCard(i);
+                            })
+                            image.style.transform = 'scale(50)'
+                            image.style.transition = 'all 2s ease';
+                            infoBox.classList.remove('allInfo');
+                            mapBox.classList.remove('none');
+                            container.classList.add('height');
+                            content.classList.add('height');
+                            main.classList.add('height');
+                            infoBox.classList.add('height');
+                            break;
+                        case 4:
+                            island.forEach(function (i) {
+                                weatherCard(i);
+                            })
+                            image.style.transform = 'scale(60)'
+                            image.style.transition = 'all 2s ease';
+                            infoBox.classList.remove('allInfo');
+                            mapBox.classList.remove('none');
+                            container.classList.add('height');
+                            content.classList.add('height');
+                            main.classList.add('height');
+                            infoBox.classList.add('height');
+                            break;
+                        default:
+                            all.forEach(function (i) {
+                                weatherCard(i);
+                                mapBox.classList.add('none');
+                                infoBox.classList.add('allInfo');
+                                container.classList.remove('height');
+                                content.classList.remove('height');
+                                main.classList.remove('height');
+                                infoBox.classList.remove('height');
+                            })
+                            break;
+                    }
+                })
+            })
+        })    
+    </script>
+</body>
+
+</html>
